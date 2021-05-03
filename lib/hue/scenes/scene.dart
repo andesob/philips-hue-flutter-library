@@ -26,7 +26,7 @@ class Scene {
       : _name = json["name"],
         _type = json["type"],
         _group = json["group"],
-        _lights = json["lights"].cast<int>(),
+        _lights = json["lights"].map((stringId) => int.parse(stringId)).toList(),
         _owner = json["owner"],
         _recycle = json["recycle"],
         _locked = json["locked"],

@@ -22,13 +22,18 @@ class BridgeApi {
   //TODO: Add all the other api's to constructor
   BridgeApi(Client client, String address)
       : this._init(
-            LightApi(Bridge(client, address)),
-            SceneApi(Bridge(client, address)),
-            GroupApi(Bridge(client, address)),
-            SetupApi(Bridge(client, address)));
+          LightApi(Bridge(client, address)),
+          SceneApi(Bridge(client, address)),
+          GroupApi(Bridge(client, address)),
+          SetupApi(Bridge(client, address)),
+        );
 
   BridgeApi._init(
-      this._lightApi, this._sceneApi, this._groupApi, this._setupApi);
+    this._lightApi,
+    this._sceneApi,
+    this._groupApi,
+    this._setupApi,
+  );
 
   set username(String username) {
     this._username = username;
