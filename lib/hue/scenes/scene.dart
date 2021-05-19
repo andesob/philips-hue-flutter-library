@@ -1,13 +1,32 @@
 class Scene {
+  /// ID of the Scene
   final String _id;
+
+  /// Name of the Scene
   final String _name;
+
+  /// Type of the Scene
   final String _type;
+
+  /// Group of the Scene
   final String _group;
+
+  /// List with Lights in the Scene
   final List<int> _lights;
+
+  /// Owner of the Scene
   final String _owner;
+
+  /// True if Scene can be recycled
   final bool _recycle;
+
+  /// True if Scene is locked
   final bool _locked;
+
+  /// When the Scene was last updated
   final String _lastUpdated;
+
+  /// Current software version
   final int _version;
 
   Scene(
@@ -22,6 +41,7 @@ class Scene {
       this._lastUpdated,
       this._version);
 
+  /// Creates a Scene object from JSON data
   Scene.fromJson(Map<String, dynamic> json, this._id)
       : _name = json["name"],
         _type = json["type"],
@@ -53,6 +73,7 @@ class Scene {
 
   String get id => _id;
 
+  /// Creates a map from a Scene object
   Map<String, dynamic> toMap() {
     Map<String, dynamic> map = new Map();
     map["name"] = _name;

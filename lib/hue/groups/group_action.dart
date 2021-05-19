@@ -1,17 +1,42 @@
 class GroupAction {
+  /// True if lights are on
   bool _on;
+
+  /// Brightness of the Lights in the Group
   int _brightness;
+
+  /// Hue of the Lights in the Group
   int _hue;
+
+  /// Saturation of the Lights in the Group
   int _saturation;
+
+  /// List with XY values of the Lights in the Group
   List<dynamic> _xy;
+
+  /// CT value of the Lights in the Group
   int _ct;
   String _alert;
+
+  /// Effect of the Lights in the Group
   String _effect;
+
+  /// Colormode of the Lights in the Group
   String _colormode;
 
-  GroupAction(this._on, this._brightness, this._hue, this._saturation, this._xy,
-      this._ct, this._alert, this._effect, this._colormode);
+  GroupAction(
+    this._on,
+    this._brightness,
+    this._hue,
+    this._saturation,
+    this._xy,
+    this._ct,
+    this._alert,
+    this._effect,
+    this._colormode,
+  );
 
+  /// Creates a GroupAction from JSON data
   GroupAction.fromJson(Map<String, dynamic> json)
       : _on = json["on"],
         _brightness = json["bri"],
@@ -45,6 +70,7 @@ class GroupAction {
 
   bool get on => _on;
 
+  /// Turns a GroupAction object into a map
   Map<String, dynamic> toMap() {
     Map<String, dynamic> map = new Map();
     map["on"] = _on;

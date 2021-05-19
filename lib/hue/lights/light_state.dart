@@ -1,18 +1,46 @@
 class LightState {
+  /// True if Light is turned on
   bool _on;
+
+  /// Brightness of the Light
   int _brightness;
+
+  /// Hue of the Light
   int _hue;
+
+  /// Saturation of the Light
   int _saturation;
+
+  /// List with XY values of the Light
   List<dynamic> _xy;
+
+  /// CT Value of the Light
   int _ct;
   String _alert;
+
+  /// Effect of the Light
   String _effect;
+
+  /// Colormode of the Light
   String _colormode;
+
+  /// True if Light can be reached
   bool _reachable;
 
-  LightState(this._on, this._brightness, this._hue, this._saturation, this._xy,
-      this._ct, this._alert, this._effect, this._colormode, this._reachable);
+  LightState(
+    this._on,
+    this._brightness,
+    this._hue,
+    this._saturation,
+    this._xy,
+    this._ct,
+    this._alert,
+    this._effect,
+    this._colormode,
+    this._reachable,
+  );
 
+  /// Creates a LightState object from JSON data
   LightState.fromJson(Map<String, dynamic> json)
       : _on = json["on"],
         _brightness = json["bri"],
@@ -49,6 +77,7 @@ class LightState {
 
   bool get on => _on;
 
+  /// Creates a map from a LightState object
   Map<String, dynamic> toMap() {
     Map<String, dynamic> map = new Map();
     map["on"] = _on;

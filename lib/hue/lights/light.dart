@@ -1,15 +1,34 @@
 import 'light_state.dart';
 
 class Light {
+  /// Name if the Light
   final String _name;
+
+  /// Type of Light
   final String _type;
+
+  /// ID of the Light
   final String _id;
+
+  /// State of the Light
   final LightState _state;
+
+  /// ID of the model of Light
   final String _modelId;
+
+  /// Unique ID for this specific Light
   final String _uniqueId;
+
+  /// Name of the manufacturer
   final String _manufacturerName;
+
+  /// Name of the product
   final String _productName;
+
+  /// Unique lumionaire ID for the Light
   final String _luminaireUniqueId;
+
+  /// The software version of the Light
   final String _swVersion;
 
   Light(
@@ -24,6 +43,7 @@ class Light {
       this._luminaireUniqueId,
       this._swVersion);
 
+  /// Creates a Light object from JSON data
   Light.fromJson(Map<String, dynamic> json, id)
       : _name = json["name"],
         _type = json["type"],
@@ -56,6 +76,7 @@ class Light {
 
   String get name => _name;
 
+  /// Creates a map from a Light object
   Map<String, dynamic> toMap() {
     Map<String, dynamic> map = new Map();
     map["name"] = _name;

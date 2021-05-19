@@ -5,7 +5,10 @@ import 'dart:developer' as developer;
 import 'package:philips_hue_flutter_library/hue/main/bridge.dart';
 
 class LightApi{
+  /// Bridge used to make calls
   Bridge _bridge;
+
+  /// Current username
   String _username;
 
   LightApi(this._bridge, [this._username]);
@@ -18,6 +21,7 @@ class LightApi{
     _username = value;
   }
 
+  /// Retrieves information about all Lights from the Bridge
   Future<List<Light>> getAll() async {
     String url = '/api/' + _username + '/lights';
     final response = await _bridge.get(url);
@@ -31,6 +35,7 @@ class LightApi{
     return lights;
   }
 
+  /// Updates the state of a specific Light
   Future<void> updateState(String id, LightState state) async {
     String url = '/api/' + _username + '/lights/' + id.toString() + '/state';
     final response = await _bridge.put(url, state.toMap());

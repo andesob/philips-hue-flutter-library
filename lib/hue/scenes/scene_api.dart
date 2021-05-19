@@ -2,7 +2,10 @@ import 'package:philips_hue_flutter_library/hue/main/bridge.dart';
 import 'package:philips_hue_flutter_library/hue/scenes/scene.dart';
 
 class SceneApi{
+  /// Bridge used to make calls
   Bridge _bridge;
+
+  /// Current username
   String _username;
 
   SceneApi(this._bridge, [this._username]);
@@ -15,6 +18,7 @@ class SceneApi{
     _username = value;
   }
 
+  /// Retrieves information about all Scenes from the Bridge
   Future<List<Scene>> getAll() async{
     String url = '/api/' + _username + "/scenes";
     final response = await _bridge.get(url);

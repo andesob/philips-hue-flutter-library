@@ -19,7 +19,7 @@ class BridgeApi {
 
   String _username;
 
-  //TODO: Add all the other api's to constructor
+
   BridgeApi(Client client, String address)
       : this._init(
           LightApi(Bridge(client, address)),
@@ -28,6 +28,7 @@ class BridgeApi {
           SetupApi(Bridge(client, address)),
         );
 
+  /// Initialized all API classes
   BridgeApi._init(
     this._lightApi,
     this._sceneApi,
@@ -42,27 +43,33 @@ class BridgeApi {
     _lightApi.username = username;
   }
 
+  /// Method called to create new user
   Future<Map<String, dynamic>> createUser(String name) async {
     return await _setupApi.createUser(name);
   }
 
+  /// Method called to get information about all Lights
   Future<List<Light>> getLights() async {
     return await _lightApi.getAll();
   }
 
-  Future<void> updateLightState(String id, LightState state) async {
-    return await _lightApi.updateState(id, state);
-  }
-
+  /// Method called to get information about all Scenes
   Future<List<Scene>> getScenes() async {
     return await _sceneApi.getAll();
   }
 
+  /// Method called to get information about all Groups
   Future<List<Group>> getGroups() async {
     return await _groupApi.getAll();
   }
 
+  /// Method called to change scene in specific group
   Future<void> changeScene(String sceneId, groupId) async {
     return await _groupApi.changeScene(sceneId, groupId);
+  }
+
+  /// Method called to update the LightState of specific Light
+  Future<void> updateLightState(String id, LightState state) async {
+    return await _lightApi.updateState(id, state);
   }
 }
